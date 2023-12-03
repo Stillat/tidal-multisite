@@ -1,0 +1,19 @@
+<div class="max-w-prose">
+    {{ code_sample }}
+    <pre
+        class="
+            {{ 'language-{ (language_override ? language_override : mode) | se_cm_to_hljs }' }}
+        "
+    >
+        {{ if file_name }}
+            <div class="flex w-full border-b border-gray-700">
+                <p class="p-0 py-2 m-0 font-mono truncate text-gray-200 print:text-black flex items-center -mt-2">
+                    {{ svg:hero-icons/outline/document-text class="w-4 h-4 inline stroke-white mr-1" aria-hidden="true" /}}
+                    {{ file_name /}}
+                </p>
+            </div>
+        {{ /if }}
+        <code>{{ code | entities }}</code>
+    </pre>
+    {{ /code_sample }}
+</div>

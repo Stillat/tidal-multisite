@@ -1,0 +1,61 @@
+<div class="relative py-12 bg-gray-200 dark:bg-gray-950 md:min-h-screen">
+    <div class="bg-white dark:bg-gray-900 container mx-auto max-w-3xl p-8">
+        <div class="relative container mx-auto max-w-3xl px-4">
+            <div class="mb-3 pb-3 border-b border-slate-200">
+                <form class="flex items-center border border-gray-400 text-gray-900 dark:text-gray-400 rounded-lg px-3" method="get" action="/search">
+                    {{ svg:hero-icons/outline/magnifying-glass class="w-5 h-5" aria-hidden="true" /}}
+                    <input type="text"
+                           placeholder="{{ trans:search.search_documentation_placeholder }}"
+                           class="focus:outline-none h-12 w-full px-3 dark:bg-gray-900 dark:text-gray-400"
+                           name="q"
+                           value="{{ get.q }}"
+                           autofocus />
+                </form>
+            </div>
+
+            <div class="flex flex-col space-y-3">
+                {{ documentation:results index="docs" paginate="7" as="results" group_results="false" }}
+                    {{ results }}
+                        {{ items.0 }}
+                            <div class="">
+                                <div class="flex">
+                                    <h3 class="font-bold text-blue-700 dark:text-purple-400">
+                                        <a href="{{ search_url }}" title="{{ search_title | entities }}">{{ search_title }}</a>
+                                        {{ if !is_root }}
+                                            <span class="font-thin text-slate-400">/</span>
+
+                                            <a href="{{ origin_url }}" title="{{ origin_title | entities }}">{{ origin_title | safe_truncate(25, '...') /}}</a>
+                                        {{ /if }}
+                                    </h3>
+                                </div>
+                                <p class="text-green-600">{{ search_url }}</p>
+                                <p class="dark:text-gray-300">{{ search_content | se_radius_excerpt(get.q, 250) | safe_truncate(250, '...') | mark }}</p>
+                            </div>
+                            {{ if code_samples | count > 0 }}
+                                <div class="ml-6 prose prose-sm dark:prose-invert">
+                                    {{ code_samples.0 }}
+                                        <pre class="language-{{ lang }}"><code>{{ sample | entities }}</code></pre>
+                                    {{ /code_samples.0 }}
+                                </div>
+                            {{ /if }}
+                        {{ /items.0 }}
+                        {{ if items | count > 1 }}
+                            <div class="ml-6">
+                                <p class="text-slate-700">{{ trans:search.other_results }}</p>
+                                <ul class="my-2">
+                                    {{ items offset="1" }}
+                                        <li class="text-blue-700"><a href="{{ search_url }}" title="{{ search_title | entities }}">{{ search_title }}</a></li>
+                                    {{ /items }}
+                                </ul>
+                            </div>
+                        {{ /if }}
+                    {{ /results }}
+
+                    {{ paginate }}
+                        {{ partial:pagination/window /}}
+                    {{ /paginate }}
+                {{ /documentation:results }}
+            </div>
+        </div>
+    </div>
+</div>

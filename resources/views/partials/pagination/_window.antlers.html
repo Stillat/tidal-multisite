@@ -1,0 +1,54 @@
+---
+active_class: 'bg-slate-700 dark:bg-slate-600 text-gray-100 hover:bg-gray-500 hover:text-gray-100 rounded-lg'
+inactive_class: 'bg-gray-100 dark:bg-gray-800 dark:text-gray-400 hover:bg-gray-200 text-gray-800 rounded-lg'
+prev_class: 'bg-gray-100 dark:bg-gray-800 dark:text-gray-400 hover:bg-gray-200 font-semibold py-2 px-4 rounded-lg'
+next_class: 'bg-gray-100 dark:bg-gray-800 dark:text-gray-400 hover:bg-gray-200 font-semibold py-2 px-4 rounded-lg'
+---
+
+<div class="flex flex-wrap items-center justify-start md:justify-center space-x-2 space-y-2 mt-6 md:py-6">
+    <div class="hidden"></div>
+
+    {{ if prev_page }}
+        <a href="{{ prev_page }}" class="{{ view:prev_class /}} text-gray-800">
+            <span>{{ trans:pagination.previous_text /}}</span>
+        </a>
+    {{ else }}
+        <a aria-disabled="true" class="{{ view:prev_class /}} cursor-not-allowed text-gray-400">
+            <span>{{ trans:pagination.previous_text /}}</span>
+        </a>
+    {{ /if }}
+
+    {{ links:segments }}
+        {{ first }}
+            <a href="{{ url }}" class="font-mono {{ (page == current_page) ? {view:active_class} : {view:inactive_class} }} font-semibold py-2 px-4">{{ page }}</a>
+        {{ /first }}
+
+        {{ if slider }}
+            <span aria-hidden="true" class="bg-gray-100 dark:bg-gray-800 dark:text-gray-400 text-gray-800 font-mono font-semibold py-2 px-4 rounded-lg">...</span>
+        {{ /if }}
+
+        {{ slider }}
+            <a href="{{ url }}" class="font-mono {{ (page == current_page) ? {view:active_class} : {view:inactive_class} }} font-semibold py-2 px-4">{{ page }}</a>
+        {{ /slider }}
+
+        {{ if slider || (!slider && last) }}
+            <span aria-hidden="true" class="bg-gray-100 dark:bg-gray-800 text-gray-800 font-mono font-semibold py-2 px-4 rounded-lg">...</span>
+        {{ /if }}
+
+        {{ last }}
+            <a href="{{ url }}" class="font-mono {{ (page == current_page) ? {view:active_class} : {view:inactive_class} }} font-semibold py-2 px-4">{{ page }}</a>
+        {{ /last }}
+    {{ /links:segments }}
+
+    {{ if next_page }}
+        <a href="{{ next_page }}" class="{{ view:next_class /}} text-gray-800">
+            {{ trans:pagination.next_text /}}
+        </a>
+    {{ else }}
+        <a aria-disabled="true" class="{{ view:next_class /}} cursor-not-allowed text-gray-400">
+            {{ trans:pagination.next_text /}}
+        </a>
+    {{ /if }}
+</div>
+
+{{ se_meta:paginate /}}

@@ -1,0 +1,19 @@
+<div class="flex min-h-64 flex-col {{ (image_alignment == 'right') ?= 'justify-between' }} md:flex-row rounded-lg {{ is_image_outlined ?= 'shadow-md' /}} bg-clip-border mb-6">
+    {{ if image_alignment == 'left' }}
+    <div class="hidden md:flex w-2/5 rounded-lg rounded-r-none bg-cover bg-clip-border"
+        style="background-image: url('{{ panel_image /}}');">
+    </div>
+    <div class="px-6">
+        <img src="{{ panel_image /}}" class="w-full rounded-lg md:hidden" alt="{{ alt /}}" />
+        {{ partial:documentation/page :page_content="embedded_content" /}}
+    </div>
+    {{ else }}
+    <div class="px-6">
+        {{ partial:documentation/page :page_content="embedded_content" /}}
+        <img src="{{ panel_image /}}" class="w-fit rounded-lg md:hidden" alt="{{ alt /}}" />
+    </div>
+    <div class="hidden md:flex w-2/5 rounded-lg rounded-l-none bg-cover bg-clip-border"
+        style="background-image: url('{{ panel_image /}}');">
+    </div>
+    {{ /if }}
+</div>

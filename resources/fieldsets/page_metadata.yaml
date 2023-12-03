@@ -1,0 +1,18 @@
+title: 'Page Metadata'
+fields:
+  -
+    handle: meta_description
+    field:
+      character_limit: '160'
+      antlers: false
+      type: textarea
+      display: 'META Description'
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true
+  -
+    import: 'social-media-image-kit::stillat_social_media_images'

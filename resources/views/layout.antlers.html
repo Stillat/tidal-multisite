@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        {{ se_meta /}}
+        {{ partial:meta/meta /}}
+        <script>
+            var _themePref = localStorage.getItem('themePreference');
+        
+            if (_themePref == 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        </script>
+        {{ vite src="resources/js/site.js|resources/css/site.css" }}
+    </head>
+    <body
+          x-data="siteData()" x-init="init()"
+          class="bg-white dark:bg-slate-900 font-sans h-screen"
+          :class="{ 'overflow-hidden': menuOpen, 'mr-4': menuOpen && scrollbarVisible }">
+        <div id="site-content">
+            <div class="bg-slate-950">
+                {{ partial:header /}}
+                {{ yield:header_content /}}
+            </div>
+            <div
+                 class="hidden top-0 bottom-0 left-0 right-0 opacity-20 bg-slate-950 z-20"
+                 :class="{ 'hidden': !menuOpen, 'absolute': menuOpen }"
+                 @click="menuOpen = false"
+                 x-transition.duration.500ms>
+            </div>
+            {{ if current_template == 'documentation/show' }}
+                <div class="container mx-auto max-w-7xl flex justify-center mt-4 px-4 xl:px-0 md:min-h-screen">
+                    {{ partial:left_sidebar /}}
+                    <div class="flex w-full flex-col lg:flex-row">
+                        <div class="flex-1 min-w-0 px-4 pb-8">
+                            {{ template_content }}
+                        </div>
+
+                        <div class="w-full lg:w-72 lg:sticky lg:top-0 overflow-auto sticky-sidebar print:hidden">
+                            {{ partial:sidebar /}}
+                        </div>
+                    </div>
+                </div>
+            {{ else }}
+                {{ partial:left_sidebar /}}
+                {{ template_content }}
+            {{ /if }}
+        </div>
+        <footer id="site-footer" class="bg-gray-100 dark:bg-black print:hidden py-8">
+            {{ partial:footer /}}
+        </footer>
+    </body>
+</html>

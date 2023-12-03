@@ -1,0 +1,98 @@
+title: 'Collapsible Content'
+fields:
+  -
+    handle: display_mode
+    field:
+      options:
+        compact: Compact
+        spacious: Spacious
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      default: spacious
+      type: select
+      display: 'Display Mode'
+      icon: select
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true
+  -
+    handle: allow_multiple_items
+    field:
+      default: true
+      type: toggle
+      display: 'Allow Multiple Items'
+      icon: toggle
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true
+  -
+    handle: list_items
+    field:
+      collapse: false
+      previews: true
+      fullscreen: true
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          instructions: null
+          icon: null
+          sets:
+            list_item:
+              display: 'List Item'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: item_heading
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: Heading
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    validate:
+                      - required
+                    width: 75
+                    localizable: true
+                -
+                  handle: open_by_default
+                  field:
+                    default: false
+                    type: toggle
+                    display: 'Open by Default'
+                    icon: toggle
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    localizable: false
+                -
+                  import: embedded_content
+      type: replicator
+      display: 'List Items'
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true

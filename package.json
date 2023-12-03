@@ -1,0 +1,24 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/typography": "^0.5.9",
+        "@vitejs/plugin-vue2": "^2.2.0",
+        "autoprefixer": "^10.4.14",
+        "laravel-vite-plugin": "^0.7.2",
+        "postcss": "^8.4.23",
+        "tailwindcss": "^3.3.2",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "alpinejs": "^3.13.1",
+        "highlight.js": "^11.8.0",
+        "highlightjs-antlers": "0.0.1",
+        "highlightjs-blade": "^0.1.0",
+        "puppeteer": "^21.3.8"
+    }
+}

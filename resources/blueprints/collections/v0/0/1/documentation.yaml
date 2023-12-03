@@ -1,0 +1,98 @@
+title: 'Documentation (Markdown)'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: content
+            field:
+              type: markdown
+              display: Content
+              localizable: true
+              instructions_position: above
+              listable: hidden
+              visibility: visible
+              replicator_preview: true
+              container: assets
+              restrict: false
+              buttons:
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - quote
+                - link
+                - image
+                - table
+                - asset
+              automatic_line_breaks: true
+              automatic_links: false
+              escape_markup: false
+              heading_anchors: false
+              smartypants: false
+              table_of_contents: false
+              antlers: false
+              hide_display: false
+  meta:
+    display: SEO
+    sections:
+      -
+        display: 'Page Metadata'
+        fields:
+          -
+            import: page_metadata
+  related_information:
+    display: 'Related Information'
+    sections:
+      -
+        display: 'Related Articles'
+        fields:
+          -
+            handle: related_articles
+            field:
+              mode: default
+              create: true
+              type: entries
+              display: 'Related Articles'
+              icon: entries
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - v0.0.1
+              max_items: 1
+              listable: false
+              localizable: true
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              mode: default
+              create: true
+              hide_display: false
+          -
+            import: docs_navigation_items

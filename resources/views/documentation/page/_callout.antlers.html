@@ -1,0 +1,9 @@
+<div class="max-w-prose">
+    {{ partial:alert type="{callout_type}" }}
+        {{ if callout_title }}
+        <span class="p-0 m-0 text-xl font-semibold">{{ callout_title }}</span>
+        {{ /if }}
+
+        {{ partial:documentation/page :page_content="embedded_content" /}}
+    {{ /partial:alert }}
+</div>

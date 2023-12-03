@@ -1,0 +1,70 @@
+title: 'Code Sample'
+fields:
+  -
+    handle: code_sample
+    field:
+      theme: material
+      mode: php
+      mode_selectable: true
+      indent_type: spaces
+      indent_size: 4
+      key_map: default
+      line_numbers: true
+      line_wrapping: true
+      antlers: false
+      type: code
+      display: 'Code Sample'
+      icon: code
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true
+  -
+    handle: code_sample_options
+    field:
+      mode: toggle
+      type: revealer
+      display: Options
+      icon: revealer
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: false
+  -
+    handle: language_override
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Language Override'
+      icon: text
+      width: 66
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      if:
+        code_sample_options: 'equals true'
+      localizable: false
+  -
+    handle: file_name
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'File Name'
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      if:
+        code_sample_options: 'equals true'
+      localizable: true

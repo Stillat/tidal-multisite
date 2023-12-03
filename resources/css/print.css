@@ -1,0 +1,6 @@
+@media print {
+    * {
+        color: #000000 !important;
+        background-color: transparent !important;
+    }
+}

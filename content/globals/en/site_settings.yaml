@@ -1,0 +1,5 @@
+site_name: Tidal
+full_logo: branding/colored.svg
+favicon: branding/favicon.svg
+footer_text: 'Tidal is an open-source Statamic starter kit.'
+github_url: 'https://github.com/stillat/tidal'

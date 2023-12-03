@@ -1,0 +1,46 @@
+---
+element: 'li'
+class: ''
+text: ''
+label: ''
+---
+{{ _id = {se_random_id} /}}
+<{{ element }}
+    x-data="dropdownMenu()"
+    x-cloak
+    x-init="setConfig({{ (view['close-on-selection'] ?? false) | bool_string /}})"
+    class="relative group inline-flex"
+    @click.away="hideMenu()"
+    @keydown="handleKeydown($event)"
+>
+    <button 
+        @click="open = !open"
+        aria-haspopup="true"
+        :aria-expanded="open.toString()" 
+        class="{{ class }}"
+        aria-label="{{ label | entities }}"
+        aria-controls="{{ _id }}"
+        title="{{ label | entities }}"
+        class="px-4 py-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+    >
+        {{ trigger ?? view.text }}
+    </button>
+
+    <div
+        id="{{ _id }}"
+        x-show="open"
+        x-transition:enter="transition-transform transition-opacity ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-95"
+        x-transition:enter-end="opacity-100 transform scale-100"
+        x-transition:leave="transition-transform transition-opacity ease-in duration-200"
+        x-transition:leave-start="opacity-100 transform scale-100"
+        x-transition:leave-end="opacity-0 transform scale-95"
+        role="menu" 
+        aria-orientation="vertical"
+        class="absolute w-56 bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-900 divide-y divide-gray-100 rounded-md shadow-lg z-10 mt-7"
+        :class="alignRight ? 'right-0' : 'left-0'"
+        @click="handleGeneralClick($event)"
+    >
+        {{ items /}}
+    </div>
+</{{ element }}>

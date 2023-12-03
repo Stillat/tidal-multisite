@@ -1,0 +1,93 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: site_name
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Site Name'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              validate:
+                - required
+              instructions: 'The site name should be the "brand name" of the site. It is displayed in various locations, such as the site''s title and footer.'
+          -
+            handle: full_logo
+            field:
+              max_files: 1
+              min_files: 1
+              mode: list
+              container: assets
+              folder: branding
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Full Logo'
+              icon: assets
+              instructions: "Your site's full logo. It is displayed in the top-left corner of the site's header, and will be rendered at approximately 128x50 pixels."
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: favicon
+            field:
+              max_files: 1
+              min_files: 1
+              mode: list
+              container: assets
+              folder: branding
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: Favicon
+              icon: assets
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              instructions: "Select an asset that will be used as your site's favicon. Custom favicons will be generated for you based on your site's configuration."
+          -
+            handle: footer_text
+            field:
+              antlers: false
+              type: textarea
+              display: 'Footer Text'
+              icon: textarea
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              instructions: "Footer text will appear to the right of the site's copyright date and site title in the lower-left of the footer."
+          -
+            handle: github_url
+            field:
+              input_type: url
+              antlers: false
+              type: text
+              display: 'GitHub URL'
+              icon: text
+              instructions: "Your main GitHub URL if you have one. Each project, or project version, can have its own GitHub repository URL. If you want a general GitHub button to appear in the site's header, enter that here."
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false

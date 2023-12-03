@@ -1,0 +1,68 @@
+<div class="mb-4">
+    <div class="
+            flex justify-between mb-2 text-sm text-gray-600 dark:text-gray-200
+            print:hidden
+        ">
+        <div class="flex items-center space-x-2">
+            <div class="flex items-center">
+                {{ svg:hero-icons/outline/clock class="w-4 h-4 mr-1" aria-hidden="true" /}}
+                <span>{{ trans:site_content.reading_time time="{(content ?? page_content) | read_time}" }}</span>
+            </div>
+            <div class="flex items-center">
+                {{ svg:hero-icons/outline/calendar-days class="w-4 h-4 mr-1" aria-hidden="true" /}}
+                <span>{{ trans:site_content.published_date date="{date | iso_format('ll')}" }}</span>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            {{ locales as="entry_locales" }}
+                {{ unless no_results || entry_locales | hide_language_picker }}
+                <div class="flex items-center">
+                    {{ svg:hero-icons/outline/globe-alt class="w-4 h-4 mr-1" aria-hidden="true" /}}
+                    <label for="entryLocales" class="sr-only">Language</label>
+                    <select
+                        id="entryLocales"
+                    >
+                    {{ entry_locales }}
+                    <option value="{{ permalink }}" {{ is_current ?= 'selected' /}}>{{ locale:name /}}</option>
+                    {{ /entry_locales }}
+                    </select>
+                </div>
+                {{ /unless }}
+            {{ /locales }}
+
+            {{ if software_version.active_version.github_settings.github_edit_root }}
+                {{ current_file_path }}
+                    <a href="{{ software_version.active_version.github_settings.github_edit_root | se_str_finish('/') }}{{ current_path }}"
+                       class="flex items-center cursor-pointer"
+                       title="{{ trans:site_content.edit_on_github }}">
+                        {{ svg:hero-icons/outline/pencil class="w-4 h-4 mr-1" aria-hidden="true" /}}
+                        <span class="hidden md:inline">{{ trans:site_content.edit_on_github }}</span>
+                    </a>
+                {{ /current_file_path }}
+            {{ /if }}
+            <a
+               data-action="print"
+               class="flex items-center cursor-pointer"
+               title="{{ trans:site_content.print_title }}"
+               @click="window.print()">
+                {{ svg:hero-icons/outline/printer class="w-4 h-4 mr-1" aria-hidden="true" /}}
+                <span class="hidden md:inline">{{ trans:site_content.print }}</span>
+            </a>
+        </div>
+    </div>
+
+    <h1 class="text-3xl font-semibold dark:text-white">{{ title }}</h1>
+    <p class="print:block hidden">{{ trans:site_content.published_date date="{date | iso_format('LLL')}" }}</p>
+</div>
+
+<div id="content-container"
+     class="
+        prose prose-pre:flex prose-pre:flex-col dark:prose-invert
+        max-w-none
+        prose-pre:max-w-full
+        prose-img:w-full
+        prose-a:text-blue-700
+        dark:prose-a:text-purple-400
+    ">
+    {{ slot /}}
+</div>

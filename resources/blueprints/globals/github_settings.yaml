@@ -1,0 +1,50 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: github_url
+            field:
+              input_type: url
+              antlers: false
+              type: text
+              display: 'GitHub URL'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              instructions: 'The URL to the GitHub repository, if any, for the software package being documented.'
+          -
+            handle: show_edit_on_github
+            field:
+              default: false
+              type: toggle
+              display: 'Show Edit on GitHub'
+              icon: toggle
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              instructions: 'Whether to show the "Edit on GitHub" link at the top of documentation articles.'
+          -
+            handle: edit_url_root
+            field:
+              input_type: url
+              antlers: false
+              type: text
+              display: 'GitHub Edit URL Root'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              instructions: 'The base URL that will be used when creating the "Edit on GitHub" link for individual pages on the site.'
+              always_save: true
+              if:
+                show_edit_on_github: 'equals true'

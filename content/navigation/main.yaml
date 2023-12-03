@@ -1,0 +1,5 @@
+title: Main
+collections:
+  - pages
+  - documentation
+max_depth: 1

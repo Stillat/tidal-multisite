@@ -1,0 +1,165 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'General Information'
+        fields:
+          -
+            handle: pwa_use_site_name
+            field:
+              default: true
+              type: toggle
+              display: 'Use Site Name'
+              icon: toggle
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: pwa_name
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: Name
+              icon: text
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              always_save: true
+              if:
+                pwa_use_site_name: 'not true'
+          -
+            handle: pwa_short_name
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Short Name'
+              icon: text
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              if:
+                pwa_use_site_name: 'not true'
+              always_save: true
+          -
+            handle: start_url
+            field:
+              type: link
+              display: 'Start URL'
+              icon: link
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+      -
+        display: 'Theme Colors'
+        fields:
+          -
+            handle: pwa_theme_color
+            field:
+              allow_any: true
+              type: color
+              display: 'Theme Color'
+              icon: color
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: pwa_theme_background_color
+            field:
+              allow_any: true
+              type: color
+              display: 'Background Color'
+              icon: color
+              width: 33
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+  related_applications:
+    display: 'Related Applications'
+    sections:
+      -
+        display: 'Related Applications'
+        fields:
+          -
+            handle: pwa_prefer_related_applications
+            field:
+              default: false
+              type: toggle
+              display: 'Prefer Related Applications'
+              icon: toggle
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: grid_field
+            field:
+              fields:
+                -
+                  handle: pwa_ra_platform
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: Platform
+                    icon: text
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                -
+                  handle: pwa_ra_application_id
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: 'Application ID'
+                    icon: text
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                -
+                  handle: pwa_ra_url
+                  field:
+                    type: link
+                    display: URL
+                    icon: link
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+              mode: stacked
+              reorderable: true
+              fullscreen: true
+              type: grid
+              display: 'Grid Field'
+              icon: grid
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false

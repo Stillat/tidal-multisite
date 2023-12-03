@@ -1,0 +1,17 @@
+{{ page_content }}
+    {{ if type == 'text' }}
+        <div class="max-w-prose">
+            {{ text /}}
+        </div>
+    {{ elseif type == 'search_only_content' }}
+        {{ if is_rendering_search }}
+            {{ if only_for_index }}
+            <p class="__search_only_context">{{ search_content /}}</p>
+            {{ else }}
+            <p>{{ search_content /}}</p>
+            {{ /if }}
+        {{ /if }}
+    {{ else }}
+        {{ partial:if_exists src="documentation/page/{type}" /}}
+    {{ /if }}
+{{ /page_content }}

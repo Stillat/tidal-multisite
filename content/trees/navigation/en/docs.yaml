@@ -1,0 +1,6 @@
+tree:
+  -
+    id: 44438d5c-61f8-417f-bc98-e469b324f3cd
+    title: 'Docs Item'
+    data:
+      insert_current_version_menu: true

@@ -1,0 +1,13 @@
+{{ partial:content }}
+
+{{ page_content }}
+    {{ if type == 'text' }}
+        <div class="max-w-prose">
+            {{ text /}}
+        </div>
+    {{ else }}
+        {{ partial:if_exists src="documentation/page/{type}" /}}
+    {{ /if }}
+{{ /page_content }}
+
+{{ /partial:content }}

@@ -1,0 +1,42 @@
+---
+icons:
+  error: 'hero-icons/outline/face-frown'
+  success: 'hero-icons/outline/check'
+  bug: 'hero-icons/outline/bug-ant'
+  info: 'hero-icons/outline/information-circle'
+  exercise: 'hero-icons/outline/pencil'
+  question: 'hero-icons/outline/question-mark-circle'
+  warning: 'hero-icons/outline/exclamation-triangle'
+icon_color:
+  error: 'bg-red-500'
+  success: 'bg-green-500'
+  bug: 'bg-pink-500'
+  info: 'bg-blue-500'
+  exercise: 'bg-gray-500'
+  question: 'bg-indigo-500'
+  warning: 'bg-amber-500'
+border_color:
+  error: 'border-l-red-500 border-red-300'
+  success: 'border-l-green-500 border-green-300'
+  bug: 'border-l-pink-500 border-pink-300'
+  info: 'border-l-blue-500 border-blue-300'
+  exercise: 'border-l-gray-500 border-gray-300'
+  question: 'border-l-indigo-500 border-indigo-300'
+  warning: 'border-l-amber-500 border-amber-300'
+---
+
+{{ view }}
+<div class="bg-white dark:bg-slate-800 p-4 rounded-lr-lg shadow-sm flex items-start space-x-4 my-4 ml-2 {{ border_color.{type} }} border-l-2 border">
+    <div class="{{ icon_color.{type} }} text-white p-2 rounded-full mt-[-1.5rem] -ml-9">
+        {{ svg src="{icons.{type}}" class="w-6 h-6" aria-hidden="true" /}}
+    </div>
+
+    <div class="
+            flex-1 prose-sm dark:prose-invert text-gray-600 dark:text-gray-300
+            prose-a:text-blue-700 dark:prose-a:text-purple-400
+        "
+    >
+        {{ slot }}
+    </div>
+</div>
+{{ /view }}

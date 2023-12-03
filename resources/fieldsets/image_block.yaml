@@ -1,0 +1,55 @@
+title: 'Image Block'
+fields:
+  -
+    import: embedded_content
+  -
+    handle: panel_image
+    field:
+      max_files: 1
+      min_files: 1
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: Image
+      icon: assets
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true
+  -
+    handle: image_alignment
+    field:
+      options:
+        left: Left
+        right: Right
+      default: right
+      type: button_group
+      display: Alignment
+      icon: button_group
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: false
+  -
+    handle: is_image_outlined
+    field:
+      default: true
+      type: toggle
+      display: Outlined
+      icon: toggle
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true

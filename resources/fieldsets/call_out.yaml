@@ -1,0 +1,45 @@
+title: 'Call Out'
+fields:
+  -
+    handle: callout_type
+    field:
+      options:
+        info: Info
+        question: Question
+        warning: Warning
+        bug: Bug
+        exercise: Exercise
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      type: select
+      display: Type
+      icon: select
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      default: info
+      localizable: false
+  -
+    handle: callout_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      width: 66
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true
+  -
+    import: embedded_content

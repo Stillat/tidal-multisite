@@ -1,0 +1,72 @@
+title: 'Content Grid'
+fields:
+  -
+    handle: is_grid_outlined
+    field:
+      default: true
+      type: toggle
+      display: Outlined
+      icon: toggle
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      width: 50
+      localizable: false
+  -
+    handle: grid_content
+    field:
+      collapse: false
+      previews: true
+      fullscreen: true
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          instructions: null
+          icon: null
+          sets:
+            grid_item:
+              display: 'Grid Item'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: panel_icon
+                  field:
+                    type: icon
+                    display: 'Panel Icon'
+                    icon: icon_picker
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    localizable: false
+                -
+                  handle: panel_title
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: 'Panel Title'
+                    icon: text
+                    width: 75
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    localizable: true
+                -
+                  import: embedded_content
+      type: replicator
+      display: 'Grid Content'
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true

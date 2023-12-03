@@ -1,0 +1,18 @@
+<a
+    href="{{ href ?? '#' /}}"
+    role="menuitem" class="block px-4 py-2 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800 dropdown-item"
+    {{ attributes:except(arr('href', 'icon', 'text', 'active')) }}
+
+    {{ if active && !(attributes:has('class')) }}
+    :class="{ 'bg-slate-200 dark:bg-slate-900': {{ active }}}"
+    {{ /if }}
+>
+{{ if slot.value }}
+    {{ slot }}
+{{ else }}
+    {{ if icon }}
+        {{ svg src="hero-icons/outline/{icon}" class="h-5 w-5 inline mr-1" aria-hidden="true" /}}
+    {{ /if }}
+    &nbsp;{{ text /}}
+{{ /if }}
+</a>

@@ -1,0 +1,8 @@
+<a
+    href="{{ url }}"
+    class="w-full truncate {{ is_current ? view:active_classes : view:inactive_classes }}"
+    aria-label="{{ title | entities }}"
+    title="{{ title | entities }}"
+>
+    {{ title | entities }}
+</a>

@@ -1,0 +1,24 @@
+<div class="relative py-12">
+    <div class="container mx-auto max-w-7xl overflow-hidden md:min-h-screen">
+        <div class="flex flex-wrap md:py-32">
+            <div class="w-full md:w-1/2 p-8">
+                <div class="flex flex-col justify-between h-full">
+                    <div class="mb-8">
+                        <h2 class="mb-6 text-16xl text-blue-600 dark:text-blue-200 font-bold tracking-px-2n leading-none">404</h2>
+                        <h3 class="mb-4 text-3xl font-bold font-heading leading-snug dark:text-gray-300">Page not found</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 font-medium leading-normal md:max-w-md">The page you are looking couldn't be found.</p>
+                    </div>
+                    <div>
+                        <a href="{{ homepage /}}" class="inline-flex items-center text-center font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 leading-normal">
+                            {{ svg:hero-icons/outline/arrow-left class="w-4 h-4 mr-1" aria-hidden="true" /}}
+                            <span>Go to homepage</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 p-8 self-end">
+                {{ svg:undraw_taken aria-hidden="true" /}}
+            </div>
+        </div>
+    </div>
+</div>

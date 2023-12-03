@@ -1,0 +1,9 @@
+<svg id="blobs" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <rect x="0" y="0" width="900" height="600" class="background"></rect>
+    <g transform="translate(900, 0)">
+        <path
+            d="M0 324.5C-37.3 326.9 -74.6 329.2 -100.3 308.6C-126 288 -140 244.4 -157.5 216.8C-175.1 189.3 -196.1 177.8 -222.5 161.6C-248.9 145.5 -280.7 124.7 -298.6 97C-316.5 69.3 -320.5 34.7 -324.5 0L0 0Z"
+            class="blob"></path>
+    </g>
+</svg>

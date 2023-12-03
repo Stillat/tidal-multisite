@@ -1,0 +1,9 @@
+{{ if insert_current_version_menu == true }}
+    {{ if software_version.documentation_collection_handle }}
+    {{ nav handle="collection::{software_version.documentation_collection_handle}" }}
+        {{ partial:nav/list /}}
+    {{ /nav }}
+    {{ /if }}
+{{ else }}
+    {{ partial:nav/list /}}
+{{ /if }}

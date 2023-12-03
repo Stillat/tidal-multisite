@@ -1,0 +1,16 @@
+@import "../../node_modules/highlight.js/styles/github-dark-dimmed.css";
+
+@media print {
+    code,
+    pre {
+        background: transparent !important;
+        color: #000000 !important;
+        overflow: visible !important;
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+    }
+
+    *[class^='hljs-'], *[class*=' hljs-']{
+        color: #000000 !important;
+    }
+}

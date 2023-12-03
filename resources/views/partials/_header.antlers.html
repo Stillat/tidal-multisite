@@ -1,0 +1,82 @@
+<header class="p-4 border-b border-gray-300 dark:border-gray-800 print:hidden">
+    <div class="container max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex md:hidden">
+            <button
+                    @click="menuOpen = true" class="text-white"
+                    aria-haspopup="true"
+                    x-bind:aria-expanded="menuOpen ? 'true' : 'false'"
+                    aria-label="{{ trans:site_general.open_navigation_panel }}"
+                    aria-controls="leftNavigationMenu">
+                {{ svg:hero-icons/outline/bars-3 class="w-6 h-6 stroke-white" aria-hidden="true" /}}
+            </button>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            {{ partial:branding/header /}}
+        </div>
+
+        <div class="hidden sm:flex items-center space-x-2">
+            <div class="w-full">
+                <form class="flex items-center p-3 border border-gray-200 dark:border-gray-600 h-12 bg-slate-900 rounded-lg text-white" method="get" action="/search">
+                    {{ svg:hero-icons/outline/magnifying-glass class="stroke-gray-200 w-5 h-4" aria-hidden="true" /}}
+                    <input
+                           type="text" id="search"
+                           aria-label="{{ trans:search.search_documentation }}"
+                           placeholder="{{ trans:search.search_documentation_placeholder }}"
+                           class="focus:outline-none w-full px-3 bg-slate-900"
+                           name="q" />
+                </form>
+            </div>
+        </div>
+        <div class="flex flex-row space-x-2">
+            <ul class="flex items-center flex-row space-x-3 text-lg" role="navigation">
+                <li class="inline-block md:hidden">
+                    <a href="{{ link to='search' /}}" title="{{ trans:search.search }}">
+                        {{ svg:hero-icons/outline/magnifying-glass class="w-6 h-6 stroke-white" aria-hidden="true" /}}
+                    </a>
+                </li>
+
+                {{ nav:main select="title|url|slug" include_home="false" as="nav_items" }}
+                    {{ unless no_results }}
+                        {{ nav_items }}
+                            <li class="text-white hidden md:inline {{ if is_current || is_parent }}font-semibold{{ else }}font-thin{{ /if }}">
+                                <a href="{{ url }}" title="{{ title | entities }}">{{ title }}</a>
+                            </li>
+                        {{ /nav_items }}
+                    {{ /unless }}
+                {{ /nav:main }}
+                {{ if site_settings:github_url }}
+                    <li>
+                        <a href="{{ site_settings:github_url }}" aria-label="{{ trans:header.visit_github_repository }}">
+                            {{ svg:github class="w-6 h-6 fill-white" aria-hidden="true" /}}
+                        </a>
+                    </li>
+                {{ /if }}
+                <a-dropdown-menu
+                                 class="text-white"
+                                 label="{{ trans:header.open_color_scheme_picker }}"
+                                 close-on-selection="true">
+                    <a-slot:trigger>
+                        {{ svg:hero-icons/outline/sun class="h-6 w-6 fill-white" x-show="effectiveTheme == 'light'" aria-hidden="true" /}}
+                        {{ svg:hero-icons/outline/moon class="h-6 w-6 fill-white" x-show="effectiveTheme == 'dark'" aria-hidden="true" /}}
+                        <span class="sr-only">{{ trans:header.open_color_scheme_picker }}</span>
+                    </a-slot:trigger>
+                    <a-slot:items>
+                        <a-dropdown-menu.item
+                            icon="sun" text="{{ trans:header.theme_light }}"
+                            @click="updateTheme('light')"
+                            active="themePreference == 'light'" />
+                        <a-dropdown-menu.item
+                            icon="moon" text="{{ trans:header.theme_dark }}"
+                            @click="updateTheme('dark')"
+                            active="themePreference == 'dark'" />
+                        <a-dropdown-menu.item
+                            icon="computer-desktop" text="{{ trans:header.theme_system }}"
+                            @click="updateTheme('system')"
+                            active="themePreference == 'system'" />
+                    </a-slot:items>
+                </a-dropdown-menu>
+            </ul>
+        </div>
+    </div>
+</header>

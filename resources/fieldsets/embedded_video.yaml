@@ -1,0 +1,18 @@
+title: 'Embedded Video'
+fields:
+  -
+    handle: video_url
+    field:
+      input_type: url
+      antlers: false
+      type: text
+      display: 'Video URL'
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      validate:
+        - required
+      localizable: true

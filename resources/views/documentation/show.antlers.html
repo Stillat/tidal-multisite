@@ -1,0 +1,18 @@
+{{ if software_version.show_version_warning && !software_version.is_latest_version }}
+{{ partial:alert type="warning" }}
+    <p>
+        <strong>{{ trans:versions.warning_title }}</strong> {{ trans:versions.viewing_older_version }}
+    </p>
+    {{ new_version_details }}
+        {{ if found_new_version }}
+        <p><a href="{{ new_version_url }}">{{ trans:versions.has_new_version :version="software_version.latest_version.version_name" /}}</a></p>
+        {{ else }}
+        <p><a href="{{ active_version_url }}">{{ trans:versions.view_updated_documentation :version="software_version.latest_version.version_name" /}}</a></p>
+        {{ /if }}
+    {{ /new_version_details }}
+{{ /partial:alert }}
+{{ /if }}
+
+{{ partial:content }}
+    {{ blueprint == 'documentation' ? {partial:documentation/markdown} : {partial:documentation/page} }} 
+{{ /partial:content }}

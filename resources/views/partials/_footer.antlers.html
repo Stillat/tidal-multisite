@@ -1,0 +1,19 @@
+<div class="container mx-auto max-w-7xl flex align-middle justify-between dark:text-white px-4 md:px-0">
+    <p>
+        <span>&copy; {{ now | format('Y') }} {{ site_settings:site_name }}.</span>
+        {{ if site_settings:footer_text }}
+            <span class="text-gray-400">{{ site_settings:footer_text /}}</span>
+        {{ /if }}
+    </p>
+    <div class="flex">
+        {{ nav:footer select="title|url|slug" include_home="false" as="items" }}
+            {{ unless no_results }}
+                <ul class="flex items-center flex-row">
+                    {{ items }}
+                        <li><a href="{{ url }}" title="{{ title | entities }}">{{ title }}</a></li>
+                    {{ /items }}
+                </ul>
+            {{ /unless }}
+        {{ /nav:footer }}
+    </div>
+</div>

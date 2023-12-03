@@ -1,0 +1,57 @@
+{{ if list_items | count > 0 }}
+{{ _is_compact = display_mode == 'compact' /}}
+<div class="space-y-4 mb-3" x-data="collapsibleList({{ (allow_multiple_items ?? false) | bool_string /}}, {{ list_items | get_collapsible_list_items /}})" x-init="init()">
+    {{ list_items }}
+    
+    {{ se_capture:panel_content }}
+        {{ partial:documentation/page :page_content="embedded_content" /}}
+    {{ /se_capture:panel_content }}
+
+    <div class="print:hidden flex flex-col space-y-0">
+        <button class="
+                    flex bg-slate-50 dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 border-t border-l border-r rounded-tr-md rounded-tl-md
+                    {{ _is_compact ? 'p-3' : 'p-6' /}} justify-between items-center w-full
+                    transition-bg duration-100 delay-50
+                "
+                :class="{ 'border-b rounded-bl-md rounded-br-md': !panels['{{ id /}}'] }"
+                @click="togglePanel('{{ id /}}')"
+                role="button"
+                id="accordion-button-{{ id /}}"
+                aria-controls="panel-{{ id /}}"
+                aria-expanded="false" 
+                x-bind:aria-expanded="panels['{{ id /}}'] ? 'true' : 'false'"
+        >
+            <span class="truncate">{{ item_heading /}}</span>
+            {{ svg:hero-icons/outline/x-mark class="h-5 w-5" x-show="panels['{{ id /}}']" aria-hidden="true" /}}
+            {{ svg:hero-icons/outline/plus class="h-5 w-5" x-show="!panels['{{ id /}}']" aria-hidden="true" /}}
+        </button>
+        <div
+            id="panel-{{ id /}}"
+            role="region"
+            aria-labelledby="accordion-button-{{ id /}}"
+            class="
+                px-3
+                border-l border-b border-r
+                rounded-bl-md rounded-br-md
+                {{ _is_compact ? 'pb-2 px-1 space-y-2' : 'pb-8 px-6 space-y-4' /}}
+            "
+            x-show="panels['{{ id /}}']"
+            x-cloak
+            x-transition:enter="transition ease-out duration-150 transform"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150 transform"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+        >
+            {{ se_capture:panel_content /}}
+        </div>
+    </div>
+
+    <div class="print:block hidden" aria-hidden="true">
+        <h3 data-indexer="ignore">{{ item_heading /}}</h3>
+        {{ se_capture:panel_content /}}
+    </div>
+    {{ /list_items }}
+</div>
+{{ /if }}

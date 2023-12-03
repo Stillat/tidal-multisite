@@ -1,0 +1,76 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "syntax-highlighting.css";
+@import "print.css";
+
+[x-cloak] {
+    display: none !important;
+}
+
+.hljs {
+    background: initial;
+}
+
+.heading-permalink {
+    text-decoration: none;
+    margin-right: 0.2em;
+    opacity: 0.4;
+    transition-duration: 200ms;
+}
+
+.prose a.heading-permalink {
+    color: #44a0ff;
+}
+
+.heading-permalink:hover {
+    opacity: 1;
+}
+
+.toc-link {
+    @apply space-y-2 inline-block truncate hover:bg-gray-100 dark:hover:bg-gray-600 px-3 py-1 max-w-full mb-1 dark:text-white hover:border-l-4 hover:border-purple-400;
+}
+
+.toc-link.active {
+    @apply border-l-4 border-purple-700;
+}
+
+.prose table th p,
+.prose table td p {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    padding: 0;
+}
+
+#blobs .blob {
+    @apply fill-gray-50;
+}
+
+#knowledge .white-accents {
+    @apply fill-white;
+}
+
+.dark #knowledge .white-accents {
+    @apply fill-gray-900;
+}
+
+.dark #knowledge .border {
+    @apply opacity-50;
+}
+
+.dark #blobs .blob {
+    @apply fill-gray-900;
+}
+
+#blobs .background {
+    @apply fill-gray-100;
+}
+
+.dark #blobs .background {
+    @apply fill-gray-950;
+}
+
+.dark mark {
+    background: #979499;
+    padding: 2px;
+}

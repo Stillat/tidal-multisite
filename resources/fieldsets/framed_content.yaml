@@ -1,0 +1,43 @@
+title: 'Framed Content'
+fields:
+  -
+    handle: frame_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      width: 75
+      localizable: true
+  -
+    handle: colored_actions
+    field:
+      default: false
+      type: toggle
+      display: 'Colored Actions'
+      icon: toggle
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      width: 25
+      localizable: false
+  -
+    handle: frame_content
+    field:
+      type: link
+      display: 'Frame Content'
+      icon: link
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      localizable: true

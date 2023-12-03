@@ -1,0 +1,9 @@
+{
+    "name": "stillat/tidal-multisite",
+    "extra": {
+        "statamic": {
+            "name": "Tidal Multi-site",
+            "description": "A documentation-focused starter kit for Statamic."
+        }
+    }
+}

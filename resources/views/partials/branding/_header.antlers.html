@@ -1,0 +1,6 @@
+<a href="{{ homepage }}" class="flex items-center align-middle gap-x-2 no-underline">
+    {{ site_settings:full_logo }}
+    <img src="{{ url }}" alt="{{ alt ?? site_settings:site_name }}" class="w-32" aria-hidden="true" />
+    {{ /site_settings:full_logo }}
+    <span class="sr-only">{{ site_settings:site_name /}}</span>
+</a>

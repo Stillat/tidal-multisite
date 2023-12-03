@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{ vite src="resources/css/site.css" }}
+    </head>
+    <body class="h-screen w-screen">
+        <div class="bg-slate-950 h-screen w-screen flex items-center justify-center">
+
+            <div class="flex flex-col items-center space-y-6">
+                <h1 class="text-5xl font-medium leading-tight text-white truncate">
+                    {{ title }}
+                </h1>
+                {{ site_settings:full_logo }}
+                <img src="{{ url | public_url }}" class="w-32" />
+                {{ /site_settings:full_logo }}
+            </div>
+        </div>
+    </body>
+</html>

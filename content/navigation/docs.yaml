@@ -1,0 +1,5 @@
+title: Docs
+collections:
+  - pages
+  - documentation
+max_depth: 3

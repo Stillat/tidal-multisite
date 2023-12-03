@@ -1,0 +1,32 @@
+{{ software_version }}
+    {{ if available_versions | count > 1 }}
+    <div class="p-3">
+        <label for="softwareVersions" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ trans:site_general.select_version }}</label>
+        <select
+            id="softwareVersions"
+            class="
+                bg-gray-50 border border-gray-300 text-gray-900
+                text-sm
+                rounded-lg focus:ring-blue-500 focus:border-blue-500
+                block w-full p-2.5 dark:bg-gray-700
+                dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+            "
+        >
+        {{ available_versions }}
+        <option value="{{ version_number}}" data-version-url="{{ url }}" {{ (version_number == active_version_number) ?= 'selected' /}}>{{ version_name }}</option>
+        {{ /available_versions }}
+        </select>
+    </div>
+    {{ /if }}
+{{ /software_version }}
+
+<ul class="space-y-2 mb-2 md:hidden">
+    {{ nav:main select="title|url|nav" }}
+        {{ partial:nav/item /}}
+    {{ /nav:main }}
+</ul>
+<ul class="space-y-4 pb-12">
+    {{ nav:docs select="title|url|nav|collection_nav|insert_current_version_menu" }}
+        {{ partial:nav/item /}}
+    {{ /nav:docs }}
+</ul>

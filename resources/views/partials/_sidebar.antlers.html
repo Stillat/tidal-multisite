@@ -1,0 +1,19 @@
+<div id="toc-wrapper" class="space-y-4 p-4 dark:text-white" style="display:none;">
+    <h3 class="text-lg font-semibold">{{ trans:site_general.on_this_page }}</h3>
+
+    <div id="toc-container"></div>
+</div>
+
+{{ if related_articles }}
+    <div class="space-y-4 p-4">
+        <h3 class="text-lg font-semibold dark:text-white">{{ trans:site_general.related_information }}</h3>
+
+        <ul class="lg:ml-3 space-y-2 ">
+            {{ related_articles }}
+                <li class="truncate dark:text-white">
+                    <a href="{{ url }}">{{ title }}</a>
+                </li>
+            {{ /related_articles }}
+        </ul>
+    </div>
+{{ /if }}

@@ -1,0 +1,66 @@
+title: 'Embedded Content'
+fields:
+  -
+    handle: embedded_content
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+        - superscript
+        - subscript
+        - code
+      smart_typography: false
+      save_html: false
+      inline: false
+      toolbar_mode: fixed
+      reading_time: false
+      word_count: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      remove_empty_nodes: false
+      antlers: false
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          instructions: null
+          icon: null
+          sets:
+            code_sample:
+              display: 'Code Sample'
+              instructions: null
+              icon: programming-script-code-brackets
+              fields:
+                -
+                  import: code_sample
+            embedded_video:
+              display: 'Embedded Video'
+              instructions: null
+              icon: media-webcam-video
+              fields:
+                -
+                  import: embedded_video
+      always_show_set_button: false
+      collapse: false
+      previews: true
+      type: bard
+      display: Content
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      container: assets
+      localizable: true

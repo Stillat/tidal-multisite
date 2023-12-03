@@ -1,0 +1,46 @@
+title: 'Docs Navigation Items'
+fields:
+  -
+    handle: is_section
+    field:
+      default: false
+      type: toggle
+      display: 'Is Section'
+      icon: toggle
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      instructions: 'When true, this menu item will be treated as a section and will not be clickable. Sections should only be at the root level.'
+      localizable: true
+  -
+    handle: menu_icon
+    field:
+      type: icon
+      display: 'Menu Icon'
+      icon: icon_picker
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      directory: resources/svg/hero-icons/outline
+      instructions: "An optional icon that will appear to the left of the menu item's text in the navigation menu."
+      localizable: true
+  -
+    handle: insert_current_version_menu
+    field:
+      default: false
+      type: toggle
+      display: 'Insert Current Version Menu'
+      icon: toggle
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      instructions: "This option controls the placement of the currently active version's documentation collection structure within the menu. Feel free to insert additional items around this item."
+      localizable: true

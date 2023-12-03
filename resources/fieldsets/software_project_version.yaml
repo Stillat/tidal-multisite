@@ -1,0 +1,97 @@
+title: 'Software Project Version'
+fields:
+  -
+    handle: project_versions
+    field:
+      fields:
+        -
+          handle: version_number
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: 'Version Number'
+            icon: text
+            width: 50
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            replicator_preview: true
+            hide_display: false
+        -
+          handle: version_name
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: 'Version Name'
+            icon: text
+            width: 50
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            replicator_preview: true
+            hide_display: false
+        -
+          handle: documentation_collection
+          field:
+            max_items: 1
+            mode: default
+            type: collections
+            display: 'Documentation Collection'
+            icon: collections
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            replicator_preview: true
+            hide_display: false
+        -
+          handle: github_settings
+          field:
+            fields:
+              -
+                handle: github_repository
+                field:
+                  input_type: url
+                  antlers: false
+                  type: text
+                  display: 'GitHub Repository'
+                  icon: text
+                  listable: hidden
+                  instructions_position: above
+                  visibility: visible
+                  replicator_preview: true
+                  hide_display: false
+              -
+                handle: github_edit_root
+                field:
+                  input_type: url
+                  antlers: false
+                  type: text
+                  display: 'GitHub Edit Root'
+                  icon: text
+                  listable: hidden
+                  instructions_position: above
+                  visibility: visible
+                  replicator_preview: true
+                  hide_display: false
+            fullscreen: true
+            type: group
+            display: 'GitHub Settings'
+            icon: group
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            replicator_preview: true
+            hide_display: false
+      mode: stacked
+      reorderable: true
+      fullscreen: true
+      type: grid
+      display: 'Project Versions'
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false

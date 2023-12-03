@@ -1,0 +1,43 @@
+---
+active_classes: 'active-menu-item truncate text-gray-950 dark:text-white border-l-4 border-cyan-500 dark:bg-slate-700 font-semibold py-1 px-3'
+inactive_classes: 'truncate text-gray-950 dark:text-white py-1 px-3 hover:border-l-4 hover:border-cyan-200 hover:bg-gray-100 dark:hover:bg-gray-600'
+---
+
+{{ if is_section || children }}
+    {{ if children }}
+        <li class="space-y-2">
+            <div class="flex max-w-fit items-center space-x-2 {{ unless is_section }}hover:bg-purple-50 dark:hover:bg-gray-600 hover:rounded-lg{{ /unless }} py-1 px-3 {{ (current_template != 'errors.404' && is_current) ?= view:active_classes }}">
+                {{ if menu_icon }}
+                    {{ svg :src="menu_icon" class="w-4 h-4 dark:text-white" aria-hidden="true" /}}
+                {{ /if }}
+                {{ if is_section }}
+                    <p class="font-semibold text-gray-950 dark:text-white" aria-label="{{ title | entities }}">{{ title | entities }}</p>
+                {{ else }}
+                    <a href="{{ url }}" class="max-w-full truncate" aria-label="{{ title | entities }}" title="{{ title | entities }}">
+                        {{ title | entities }}
+                    </a>
+                {{ /if }}
+            </div>
+
+            <ul class="space-y-2 pl-4">
+                {{ children }}
+                    <li>
+                        {{ partial:nav/link_item /}}
+
+                        {{ if children }}
+                            <ul class="space-y-2 pl-4 mt-2">
+                                {{ children }}
+                                    <li>{{ partial:nav/link_item /}}</li>
+                                {{ /children }}
+                            </ul>
+                        {{ /if }}
+                    </li>
+                {{ /children }}
+            </ul>
+        </li>
+    {{ /if }}
+{{ else }}
+    <li class="flex max-w-fit items-center space-x-2">
+        {{ partial:nav/link_item /}}
+    </li>
+{{ /if }}

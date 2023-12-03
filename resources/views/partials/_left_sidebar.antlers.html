@@ -1,0 +1,48 @@
+{{ se_capture:menu_attributes }}
+{{ if current_template == 'documentation/show' }}
+    x-show="menuOpen || !isSmallBreakpoint"
+{{ else }}
+    x-show="menuOpen"
+{{ /if }}
+{{ /se_capture:menu_attributes }}
+<div
+    id="leftNavigationMenu"
+    role="region"
+    x-cloak
+    aria-label="{{ trans:site_general.main_navigation_menu }}"
+    x-bind:aria-hidden="menuOpen || !isSmallBreakpoint ? 'false' : 'true'"
+    class="
+        z-20
+        {{ view.hidden_by_default ? '' : 'md:relative' }}
+        w-96 md:w-74 lg:sticky lg:top-0 overflow-auto overflow-x-hidden
+        sticky-sidebar print:hidden p-6 md:p-0
+        left-0 top-0 bottom-0 bg-white dark:bg-slate-900
+        md:bg-inherit
+        border-r md:border-r-0 shadow-md md:shadow-none
+    "
+    :class="{
+        'absolute visible': menuOpen && isSmallBreakpoint, 'relative': !isSmallBreakpoint,
+        {{ if view.hidden_by_default }}'hidden' : !isSmallBreakpoint || !menuOpen,{{ /if }}
+    }"
+    {{ se_capture:menu_attributes /}}
+    x-bind:x-transition:enter="menuEnterTransition()" 
+    x-bind:x-transition:enter-start="menuEnterStartTransition()" 
+    x-transition:enter-end="translate-x-0"
+    x-bind:x-transition:leave="menuLeaveTransition()"
+    x-transition:leave-start="translate-x-0" 
+    x-bind:x-transition:leave-end="menuLeaveEndTransition()"
+>
+    <div class="mb-4 flex justify-between md:hidden">
+        {{ partial:branding/header /}}
+        <button
+            @click="menuOpen = false" class="dark:text-white"
+            aria-label="{{ trans:site_general.close_navigation_panel }}"
+            aria-controls="leftNavigationMenu"
+        >
+            {{ svg:hero-icons/outline/x-mark class="w-6 h-6" aria-hidden="true" /}}
+            <span class="sr-only">{{ trans:site_general.close_navigation_panel }}</span>
+        </button>
+    </div>
+
+    {{ partial:nav /}}
+</div>

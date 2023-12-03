@@ -1,0 +1,5 @@
+title: Footer
+collections:
+  - pages
+  - documentation
+max_depth: 1

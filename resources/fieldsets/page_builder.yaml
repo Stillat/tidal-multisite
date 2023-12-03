@@ -1,0 +1,137 @@
+title: 'Page Builder'
+fields:
+  -
+    handle: page_content
+    field:
+      buttons:
+        - h2
+        - h3
+        - h4
+        - h5
+        - bold
+        - h6
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+        - superscript
+        - subscript
+        - code
+      smart_typography: false
+      save_html: false
+      inline: false
+      toolbar_mode: fixed
+      reading_time: false
+      word_count: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      remove_empty_nodes: false
+      antlers: false
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      sets:
+        code_block:
+          display: 'Code Block'
+          instructions: null
+          icon: programming-script-code-brackets
+          sets:
+            code_sample:
+              display: 'Code Sample'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: code_sample
+            callout:
+              display: Callout
+              instructions: null
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: call_out
+            content_grid:
+              display: 'Content Grid'
+              instructions: null
+              icon: layout-grid-dots
+              fields:
+                -
+                  import: content_grid
+            image_panel:
+              display: 'Image Panel'
+              instructions: null
+              icon: media-image-picture-gallery
+              fields:
+                -
+                  import: image_block
+            collapsible_content:
+              display: 'Collapsible Content'
+              instructions: null
+              icon: arrows-fit-to-height
+              fields:
+                -
+                  import: collapsible_content
+            embedded_video:
+              display: 'Embedded Video'
+              instructions: null
+              icon: media-webcam-video
+              fields:
+                -
+                  import: embedded_video
+            framed_content:
+              display: 'Framed Content'
+              instructions: null
+              icon: media-image-photo-focus-frame
+              fields:
+                -
+                  import: framed_content
+            search_only_content:
+              display: 'Search Only Content'
+              instructions: 'Content that will only be available when generating search results.'
+              icon: search-magnifying-glass
+              fields:
+                -
+                  handle: search_content
+                  field:
+                    antlers: false
+                    type: textarea
+                    display: 'Search Content'
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                -
+                  handle: only_for_index
+                  field:
+                    default: false
+                    type: toggle
+                    display: 'Only for Index'
+                    icon: toggle
+                    instructions: 'Setting this field to true will cause the content to only appear within the search index, and the content will not be rendered to the search results page.'
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+      always_show_set_button: false
+      collapse: false
+      previews: true
+      type: bard
+      display: Content
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      container: assets
+      localizable: true
