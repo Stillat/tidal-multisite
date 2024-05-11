@@ -13,6 +13,7 @@ export_paths:
   - config/feedamic.php
   - resources/blueprints
   - lang
+  - routes
   - resources
   - public/assets
   - public/social-media-images
@@ -29,10 +30,10 @@ export_paths:
   - postcss.config.js
   - vite.config.js
 dependencies:
-  mitydigital/feedamic: ^2.2
-  stillat/antlers-components: ^2.1
-  stillat/documentation-search: ^1.0.3
-  stillat/social-media-image-kit: ^1.0.0
-  stillat/statamic-bard-heading-permalinks: ^1
-  stillat/statamic-search-report: ^1
-  stillat/statamic-site-essentials: ^1.1.4
+  mitydigital/feedamic: ^2.3
+  stillat/antlers-components: ^2.2
+  stillat/documentation-search: ^1.1
+  stillat/social-media-image-kit: ^1.2
+  stillat/statamic-bard-heading-permalinks: ^1.1
+  stillat/statamic-search-report: ^1.1
+  stillat/statamic-site-essentials: ^1.3
