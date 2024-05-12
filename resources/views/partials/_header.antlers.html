@@ -57,8 +57,8 @@
                                  label="{{ trans:header.open_color_scheme_picker }}"
                                  close-on-selection="true">
                     <a-slot:trigger>
-                        {{ svg:hero-icons/outline/sun class="h-6 w-6 fill-white" x-show="effectiveTheme == 'light'" aria-hidden="true" /}}
-                        {{ svg:hero-icons/outline/moon class="h-6 w-6 fill-white" x-show="effectiveTheme == 'dark'" aria-hidden="true" /}}
+                        {{ svg:hero-icons/outline/sun class="h-6 w-6 fill-white" x-show="effectiveTheme == 'light'" aria-hidden="true" sanitize="false" /}}
+                        {{ svg:hero-icons/outline/moon class="h-6 w-6 fill-white" x-show="effectiveTheme == 'dark'" aria-hidden="true" sanitize="false" /}}
                         <span class="sr-only">{{ trans:header.open_color_scheme_picker }}</span>
                     </a-slot:trigger>
                     <a-slot:items>
